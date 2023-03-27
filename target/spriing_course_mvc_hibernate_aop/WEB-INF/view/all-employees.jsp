@@ -12,8 +12,12 @@
         <th>Surname</th>
         <th>Department</th>
         <th>Salary</th>
+        <th>Operations</th>
     </tr>
     <c:forEach var="emp" items="${allEmps}">
+        <c:url var="updateButton" value="/updateInfo">
+
+        </c:url>
         <tr>
             <td>${emp.name}</td>
             <td>${emp.surname}</td>
@@ -25,6 +29,12 @@
 
 
 </table>
+<br>
+
+<input type="button" value="Add"
+<%--on click - это что должно произойти после нажатия кнопки--%>
+ onclick="window.location.href =  'addNewEmployee'"/>
+
 
 
 

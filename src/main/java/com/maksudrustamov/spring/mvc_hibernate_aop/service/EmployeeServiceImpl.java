@@ -8,12 +8,21 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Service
+@Service // это специализированный компонент
 public class EmployeeServiceImpl implements EmployeeService{
     @Autowired
     private EmployeeDAO employeeDAO;
     @Transactional
     public List<Employee> getAllEmployees() {
         return employeeDAO.getAllEmployees();
+    }
+
+    @Transactional
+    public void saveEmployee(Employee employee) {
+        employeeDAO.saveEmployee(employee);
+    }
+
+    public Employee getEmployee(int id) {
+        return null;
     }
 }
