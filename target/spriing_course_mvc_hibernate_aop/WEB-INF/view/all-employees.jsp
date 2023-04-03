@@ -1,4 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="d" uri="http://www.springframework.org/tags" %>
+
+
 <!DOCTYPE html>
 <html>
 <body>
@@ -15,14 +18,17 @@
         <th>Operations</th>
     </tr>
     <c:forEach var="emp" items="${allEmps}">
-        <c:url var="updateButton" value="/updateInfo">
-
-        </c:url>
+        <d:url var="updateButton" value="/updateInfo">
+            <c:param name="empId" value="${emp.id}"/>
+        </d:url>
         <tr>
             <td>${emp.name}</td>
             <td>${emp.surname}</td>
             <td>${emp.department}</td>
             <td>${emp.salary}</td>
+            <td>
+                <input type="button" value="Update" onclick="window.location.href = '${updateButton}'">
+            </td>
 
         </tr>
     </c:forEach>
